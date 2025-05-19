@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Janu ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #fff;
+      position: relative;
+      padding-bottom: 50px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .message {
+      font-size: 2.8rem;
+      text-align: center;
+      padding: 20px 30px;
+      background: rgba(255, 0, 128, 0.6);
+      border-radius: 30px;
+      display: inline-block;
+      box-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+      backdrop-filter: blur(6px);
+      animation: popIn 2s ease-out;
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      80% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .video-container {
+      width: 100%;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .love-note {
+      font-size: 1.6rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 24px;
+      border-radius: 20px;
+      line-height: 2;
+      animation: fadeIn 3s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .message {
+        font-size: 2rem;
+        padding: 16px 24px;
+      }
+      .love-note {
+        font-size: 1.2rem;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message">💖 Happy Birthday Janu 💖<br>You’re my heartbeat 💓</div>
+
+    <div class="video-container">
+      <video autoplay muted loop controls playsinline>
+        <source src="birthday_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="love-note">
+      Fucking hot <br>
+      u just mood me up <br>
+      
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="romantic-music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating hearts -->
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    const heartContainer = document.getElementById("hearts");
+    for (let i = 0; i < 40; i++) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+      heart.style.opacity = Math.random();
+      heartContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
